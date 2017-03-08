@@ -1,3 +1,4 @@
+#include <ros/time.h>
 #include <ros/ros.h>
 #include <gtest/gtest.h>
 #include <iostream>
@@ -18,10 +19,6 @@ public:
         last_msg_ = msg;
     }
 
-    fake_ar_publisher::ARMarkerConstPtr get_last_msg(){
-      return last_msg_;
-    }
-
     ros::Subscriber ar_sub_;
     fake_ar_publisher::ARMarkerConstPtr last_msg_;
 };
@@ -29,17 +26,15 @@ public:
 TEST(TestSuite, ar_z_position_test)
 {
   ros::NodeHandle nh;
+  ros::Duration(10).sleep();
   BaseTest basetester(nh);
-  std::cout
-  ASSERT_TRUE(basetester.get_last_msg()->pose.pose.position.z==0.5);
-  ros::spin();
-}
-
-TEST(TestSuite, ar_header_frameid_test)
-{
-  ros::NodeHandle nh;
-  BaseTest basetester(nh);
-  ASSERT_TRUE(basetester.get_last_msg()->header.frame_id=="camera_frame");
+  if(basetester.ar_sub_.getNumPublishers()==0){
+    ASSERT_FALSE(true);
+  }
+  else{
+    ROS_INFO_STREAM(basetester.last_msg_->pose.pose.position.z);
+    ASSERT_TRUE(basetester.last_msg_->pose.pose.position.z==0.5);
+  }
   ros::spin();
 }
 

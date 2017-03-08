@@ -61,6 +61,6 @@ target_link_libraries(descartes_node ${catkin_LIBRARIES})
 
 if(CATKIN_ENABLE_TESTING)
   find_package(rostest REQUIRED)
-  catkin_add_gtest(${PROJECT_NAME}_utest test/utest.cpp)
+   add_rostest_gtest(${PROJECT_NAME}_utest test/utest_launch.test test/utest.cpp)
   target_link_libraries(${PROJECT_NAME}_utest ${catkin_LIBRARIES})
 endif()
