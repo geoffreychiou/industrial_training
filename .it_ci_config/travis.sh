@@ -19,7 +19,7 @@ if ! [ "$IN_DOCKER" ]; then
             export DOCKER_IMAGE=ros/kinetic-ros-base:$ROS_DISTRO-ci-shadow-fixed
             ;;
         *)
-            export DOCKER_IMAGE=ros/kinetic-ros-base:$ROS_DISTRO-ci
+            export DOCKER_IMAGE=ros/kinetic-ros-base
             ;;
     esac
     echo "Starting Docker image: $DOCKER_IMAGE"
