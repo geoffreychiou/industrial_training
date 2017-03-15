@@ -39,7 +39,7 @@ if ! [ "$IN_DOCKER" ]; then
         -e TEST \
         -e TEST_BLACKLIST \
         -v $(pwd):/root/$REPOSITORY_NAME $DOCKER_IMAGE \
-        /bin/bash -c "cd /root/$REPOSITORY_NAME; source .moveit_ci/travis.sh;"
+        /bin/bash -c "cd /root/$REPOSITORY_NAME; source .it_ci_config/travis.sh;"
     return_value=$?
 
     if [ $return_value -eq 0 ]; then
