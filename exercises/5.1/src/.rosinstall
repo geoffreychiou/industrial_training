@@ -2,4 +2,5 @@
 - git: {local-name: industrial_core, uri: 'https://github.com/ros-industrial/industrial_core.git', version: kinetic-devel}
 - git: {local-name: fake_ar_publisher, uri: 'https://github.com/jmeyer1292/fake_ar_publisher.git', version: master}
 - git: {local-name: descartes, uri: 'https://github.com/ros-industrial-consortium/descartes.git', version: kinetic-devel}
+- git: {local-name: ar_tools, uri: 'https://github.com/ar-tools/ar_tools.git', version: master}
 
